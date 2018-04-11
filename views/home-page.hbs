@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Billy's Playlist</title>
-</head>
-<body>
-  <h1>Billy's Playlist</h1>
+<h2>{{song.title}}</h2>
+<p>by {{song.artist}}</p>
+<p>{{{song.description}}}</p>
 
-  <h2>{{song.title}}</h2>
-  <p>by {{song.artist}}</p>
-  <p>{{{song.description}}}</p>
+{{#if song.review}}
+  <h3> Review </h3>
+  <p>{{song.review}}</p>
+{{else}}
+  <h3>No review yet</h3>
+{{/if}}
 
-  {{#if song.review}}
-    <h3> Review </h3>
-    <p>{{song.review}}</p>
-  {{else}}
-    <h3>No review yet</h3>
-  {{/if}}
+<img src="{{song.photoUrl}}" />
+<br />
 
-  <img src="{{song.photoUrl}}" />
-  <br />
-
-  <a href="/playlist">See Playlist</a>
-</body>
-</html>
+<a href="/playlist">See Playlist</a>

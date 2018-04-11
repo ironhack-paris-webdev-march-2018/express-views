@@ -1,4 +1,5 @@
 const express = require("express");
+const hbs = require("hbs");
 
 const app = express();
 
@@ -9,6 +10,12 @@ app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 // we are using the "hbs" package from npm for our view engine
 app.set("view engine", "hbs");
+
+// we are using "layout.hbs" inside of "views/" for our layout file
+app.set("layout", __dirname + "/views/layout.hbs");
+
+// our partials can be found in the "views/partials/" folder
+hbs.registerPartials(__dirname + "/views/partials");
 
 const billysSongs = [
   {
